@@ -53,8 +53,9 @@ pygame.init()
 size = (700, 500)
 
 
-
 screen = pygame.display.set_mode((size[0], size[1]+100))
+
+asteroid_image = pygame.image.load("asteroid.png").convert_alpha()
 
 num_baddies = 2
 baddies = []
@@ -75,7 +76,7 @@ clock = pygame.time.Clock()
 
 #Create obstacles
 for i in range (num_asteroids):
-    asteroids.append(Asteroid([random.randrange(size[0]),random.randrange(size[1])], screen, size))
+    asteroids.append(Asteroid([random.randrange(size[0]),random.randrange(size[1])], screen, size, asteroid_image))
 
 time = 0
 seconds = 0
