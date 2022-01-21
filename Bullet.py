@@ -17,7 +17,7 @@ class Bullet():
         self.radius = 2
         # Starts projectile in centre of ship
         self.loc = start
-        #Screen size do determine if bullet should be removed
+        #Screen size to determine if bullet should be removed
         self.screen_width = 2 * self.dest[0]
         self.scree_height = 2 * self.dest[1]
 
