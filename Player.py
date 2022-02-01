@@ -10,8 +10,9 @@ RED = (255, 0, 0)
 BLUE = (0, 0, 255)
 
 class Player():
-    def __init__(self, screen, location, size, bullets, asteroids):
+    def __init__(self, screen, image, location, size, bullets, asteroids):
         self.location = location
+        self.image = pygame.transform.scale(image, (20, 20))
         self.health = 5
         self.shields = 100
         self.x_speed = 0
@@ -70,7 +71,9 @@ class Player():
 
     def draw(self):
         # draws ship
-        pygame.draw.circle(self.screen, self.color, self.location, 10)
+        #pygame.draw.circle(self.screen, self.color, self.location, 10)
+        self.screen.blit(self.image, [self.location[0] - 10, self.location[1] - 10])
+
         if self.shields > 0:
             pygame.draw.circle(self.screen, self.shield_color, self.location, self.radius, 2)
 

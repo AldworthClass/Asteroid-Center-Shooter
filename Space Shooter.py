@@ -59,6 +59,7 @@ asteroid_image = pygame.image.load("asteroid.png").convert_alpha()
 background_image = pygame.image.load("space_background.png").convert()
 mass_relay_image = pygame.image.load("mass_relay.png").convert_alpha()
 mass_relay_image = pygame.transform.scale(mass_relay_image, (100, 51))
+ship_image = pygame.image.load("UFO_top.png").convert_alpha()
 
 num_baddies = 2
 baddies = []
@@ -68,7 +69,7 @@ bullets = []
 num_asteroids = 10
 asteroids = []
 
-ship = Player(screen, [350, 15], size, bullets, asteroids)
+ship = Player(screen, ship_image, [350, 15], size, bullets, asteroids)
 stats_display = HUD(screen, ship, asteroids, bullets)
 pygame.display.set_caption("My Game")
 # Loop until the user clicks the close button.
