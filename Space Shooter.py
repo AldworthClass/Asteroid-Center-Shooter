@@ -56,6 +56,9 @@ size = (700, 500)
 screen = pygame.display.set_mode((size[0], size[1]+100))
 
 asteroid_image = pygame.image.load("asteroid.png").convert_alpha()
+background_image = pygame.image.load("space_background.png").convert()
+mass_relay_image = pygame.image.load("mass_relay.png").convert_alpha()
+mass_relay_image = pygame.transform.scale(mass_relay_image, (100, 51))
 
 num_baddies = 2
 baddies = []
@@ -76,7 +79,7 @@ clock = pygame.time.Clock()
 
 #Create obstacles
 for i in range (num_asteroids):
-    asteroids.append(Asteroid([random.randrange(size[0]),random.randrange(size[1])], screen, size, asteroid_image))
+    asteroids.append(Asteroid([random.randrange(5, size[0] - 5),random.randrange(5, size[1]) - 10], screen, size, asteroid_image))
 
 time = 0
 seconds = 0
@@ -125,11 +128,14 @@ while not done:
 
     # --- Screen-clearing code goes here
     #  Here, we clear the screen to white.
-    screen.fill(BLACK)
+    #screen.fill(BLACK)
+    screen.blit(background_image, [0, 0])
+    
 
     # --- Drawing code should go here
     #center portal
-    pygame.draw.circle(screen, YELLOW, [int(size[0]/2), int(size[1]/2)], 5)
+    screen.blit(mass_relay_image, [292, 217])
+    #pygame.draw.circle(screen, YELLOW, [int(size[0]/2), int(size[1]/2)], 5)
 
     #ship and ships bullets are drawn
     ship.draw()
