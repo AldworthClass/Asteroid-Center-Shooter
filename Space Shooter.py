@@ -44,7 +44,7 @@ def end_game_screen(screen, clock, ship):
 
         # --- Limit to 60 frames per second
         clock.tick(60)
-
+    return True
 
 pygame.init()
 
