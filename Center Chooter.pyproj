@@ -43,7 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="asteroid.png" />
+    <Content Include="laser_sound1.mp3" />
     <Content Include="mass_relay.png" />
+    <Content Include="short_explosion.wav" />
     <Content Include="space_background.png" />
     <Content Include="UFO_top.png" />
   </ItemGroup>

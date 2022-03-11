@@ -53,7 +53,9 @@ class Bullet():
             if (MyFunctions.distance(self.loc, asteroid.location) < self.radius + asteroid.size): #bullet and asteroid collide
                 asteroid.weak_hit()
                 if  self.upgraded or asteroid.size <= 5:
+                    asteroid.explode()
                     asteroids.remove(asteroid)
+
                 return True
         return False
 

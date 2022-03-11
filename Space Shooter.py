@@ -6,7 +6,6 @@ from HUD import HUD
 import MyFunctions
 import random
 
-
 # Define some colors, you may want to add more
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -52,7 +51,6 @@ pygame.init()
 # Set the width and height of the screen [width, height]
 size = (700, 500)
 
-
 screen = pygame.display.set_mode((size[0], size[1]+100))
 
 asteroid_image = pygame.image.load("asteroid.png").convert_alpha()
@@ -60,6 +58,8 @@ background_image = pygame.image.load("space_background.png").convert()
 mass_relay_image = pygame.image.load("mass_relay.png").convert_alpha()
 mass_relay_image = pygame.transform.scale(mass_relay_image, (100, 51))
 ship_image = pygame.image.load("UFO_top.png").convert_alpha()
+
+explode_sound = pygame.mixer.Sound("short_explosion.wav")
 
 num_baddies = 2
 baddies = []
@@ -69,7 +69,7 @@ bullets = []
 num_asteroids = 10
 asteroids = []
 
-ship = Player(screen, ship_image, [350, 15], size, bullets, asteroids)
+ship = Player(screen, ship_image, [350, 15], size, bullets, asteroids, pygame.mixer.Sound("laser_sound1.mp3"))
 stats_display = HUD(screen, ship, asteroids, bullets)
 pygame.display.set_caption("My Game")
 # Loop until the user clicks the close button.
@@ -80,7 +80,7 @@ clock = pygame.time.Clock()
 
 #Create obstacles
 for i in range (num_asteroids):
-    asteroids.append(Asteroid([random.randrange(5, size[0] - 5),random.randrange(5, size[1]) - 10], screen, size, asteroid_image))
+    asteroids.append(Asteroid([random.randrange(5, size[0] - 5),random.randrange(5, size[1]) - 10], screen, size, asteroid_image, pygame.mixer.Sound("short_explosion.wav")))
 
 time = 0
 seconds = 0

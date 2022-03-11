@@ -10,7 +10,7 @@ RED = (255, 0, 0)
 BLUE = (0, 0, 255)
 
 class Player():
-    def __init__(self, screen, image, location, size, bullets, asteroids):
+    def __init__(self, screen, image, location, size, bullets, asteroids, sound):
         self.location = location
         self.image = pygame.transform.scale(image, (20, 20))
         self.health = 5
@@ -25,6 +25,7 @@ class Player():
         self.color = BLUE
         self.shield_color = GREEN
         self.radius = 15
+        self.sound = sound
 
     def move(self):
 
@@ -88,3 +89,4 @@ class Player():
     def shoot(self):
         #copy list b/c bullet only needs the points, not a reference to the list
         self.bullets.append(Bullet(self.location.copy(), self.mid ))
+        self.sound.play()
