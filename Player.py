@@ -39,6 +39,7 @@ class Player():
             self.location[1] -= self.y_speed
         if self.check_hit():# player hit asteroid
             return True #Ends here if ship is dead
+
         #moves projectile
         for bullet in self.bullets:
             if not bullet.move():#Removes bullets if they are off the screen
@@ -46,7 +47,6 @@ class Player():
             else:
                 if bullet.check_asteroid_hit(self.asteroids):#Checks for a collision with an asteroid
                     self.bullets.remove(bullet)
-                    print("asteroid destroyed")
                     self.score += 5
         return False
 
